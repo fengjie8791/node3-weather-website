@@ -5,6 +5,7 @@ const geocode = require('./utilis/geocode.js');
 const forecast = require('./utilis/forecast.js');
 
 const app = express();
+const port = process.env.PORT || 3000
 
 //Define path for Express config
 const publicDirectory = path.join(__dirname, '../public');
@@ -61,7 +62,7 @@ app.get('/weather', (req, res) => {
             }
              res.send({ address:req.query.address,
                         location, 
-                        forcastData: forcastData
+                        forcastData
              })
         })
     })
@@ -96,6 +97,6 @@ app.get('*', (req, res) => {
     })
 })
 
-app.listen(3000, () => {
-    console.log('server os up on port 3000')
+app.listen(port, () => {
+    console.log('server os up on port' + 3000);
 })
